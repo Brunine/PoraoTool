@@ -24,7 +24,7 @@ time_since_last_change = 100
 last_shadow_backup = 0
 
 
-def encerrar_proctree():  # kills process tree, parent and child processes
+def encerrar_proctree():  # Encerra o process tree e seus dependentes
     global ult_processos
     print("Possível Ransomware detectado!")
     pids = ""
@@ -44,7 +44,7 @@ def extrair_extensao(file: str):
         return False
 
 
-def start_protection():  # creates a folder that is going to be used as backup and gets machine's users
+def start_protection():  # Pasta de backup
     global users_list
     global username
     procname = psutil.Process(os.getpid()).name()
@@ -99,7 +99,7 @@ def shadow_copy():  # Cria uma shadowcopy a cada 1h30
         last_shadow_backup = time.time()
 
 
-def novos_processos():  # verifies processes created on the last 3 minutes and analyze theirs path
+def novos_processos():  # Checar novos processos nos últimos minutos
     global ult_processos
     for process in psutil.process_iter():
         now = int(time.time())
